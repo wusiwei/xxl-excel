@@ -2,6 +2,8 @@ package com.xuxueli.poi.excel.annotation;
 
 import org.apache.poi.hssf.util.HSSFColor;
 
+import com.xuxueli.poi.excel.util.SheetType;
+
 import java.lang.annotation.*;
 
 /**
@@ -27,6 +29,12 @@ public @interface ExcelSheet {
      * @return
      */
     HSSFColor.HSSFColorPredefined headColor() default HSSFColor.HSSFColorPredefined.LIGHT_GREEN;
+    
+    /**
+     * 表复杂度类型
+     * @return
+     */
+    SheetType sheetType() default SheetType.SIMPLE;
 
 }
 

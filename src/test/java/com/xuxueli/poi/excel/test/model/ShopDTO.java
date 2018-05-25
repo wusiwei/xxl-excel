@@ -2,6 +2,8 @@ package com.xuxueli.poi.excel.test.model;
 
 import com.xuxueli.poi.excel.annotation.ExcelField;
 import com.xuxueli.poi.excel.annotation.ExcelSheet;
+import com.xuxueli.poi.excel.util.SheetType;
+
 import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
 
@@ -12,7 +14,7 @@ import java.util.Date;
  *
  * @author xuxueli 2017-09-12 11:20:02
  */
-@ExcelSheet(name = "商户列表", headColor = HSSFColor.HSSFColorPredefined.LIGHT_GREEN)
+@ExcelSheet(name = "商户列表", headColor = HSSFColor.HSSFColorPredefined.LIGHT_GREEN , sheetType=SheetType.COMPLEX)
 public class ShopDTO {
 
     @ExcelField(name = "是否VIP商户")
