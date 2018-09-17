@@ -263,7 +263,8 @@ public class ExcelExportUtil {
 
         String sheetName = sheetDataList.get(0).getClass().getSimpleName();
         int headColorIndex = -1;
-        boolean sheetFlag=true;
+        boolean sheetFlag=true;//判断是否需要合并单元格
+        
         if (excelSheet != null) {
             if (excelSheet.name()!=null && excelSheet.name().trim().length()>0) {
                 sheetName = excelSheet.name().trim();

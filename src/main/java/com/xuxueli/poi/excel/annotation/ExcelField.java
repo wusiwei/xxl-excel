@@ -2,6 +2,8 @@ package com.xuxueli.poi.excel.annotation;
 
 import org.apache.poi.ss.usermodel.HorizontalAlignment;
 
+import com.xuxueli.poi.excel.util.FieldType;
+
 import java.lang.annotation.*;
 
 /**
@@ -44,5 +46,11 @@ public @interface ExcelField {
      * @return
      */
     String dateformat() default "yyyy-MM-dd HH:mm:ss";
+    
+    /**
+     * 单元格类型
+     * @return
+     */
+    FieldType fieldType() default FieldType.SINGLE;
 
 }
