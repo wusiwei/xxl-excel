@@ -52,5 +52,17 @@ public @interface ExcelField {
      * @return
      */
     FieldType fieldType() default FieldType.SINGLE;
+    
+    /**
+     * 可匹配的单元格数组
+     * @return
+     */
+    FieldType[] fieldTypes() default {FieldType.SINGLE};
+    
+    /**
+     * 列是否必须，默认不是
+     * @return
+     */
+    boolean required() default false;
 
 }

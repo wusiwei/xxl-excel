@@ -13,8 +13,10 @@ import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Excel导入工具
@@ -44,15 +46,21 @@ public class ExcelImportUtil {
 
             // sheet field
             List<Field> fields = new ArrayList<Field>();
+            
+            Map<String,Field> fieldsMap = null;
             if (sheetClass.getDeclaredFields()!=null && sheetClass.getDeclaredFields().length>0) {
+            	fieldsMap = new HashMap<String,Field>(sheetClass.getDeclaredFields().length);
                 for (Field field: sheetClass.getDeclaredFields()) {
                     if (Modifier.isStatic(field.getModifiers())) {
                         continue;
                     }
+                    fieldsMap.put(field.getName(), field);
                     fields.add(field);
                 }
             }
-
+            if (fieldsMap==null || fields.size()==0) {
+                throw new RuntimeException(">>>>>>>>>>> xxl-excel error, data field can not be empty.");
+            }
             if (fields==null || fields.size()==0) {
                 throw new RuntimeException(">>>>>>>>>>> xxl-excel error, data field can not be empty.");
             }
